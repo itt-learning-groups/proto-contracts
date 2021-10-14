@@ -1,0 +1,31 @@
+syntax = "proto3";
+package todoapi.v1;
+
+option go_package = "github.com/itt-learning-groups/proto-contracts/todoapi/v1;todoapiv1";
+
+import "google/api/annotations.proto";
+
+service TodoapiService {
+  rpc CreateTodo(CreateTodoRequest) returns (CreateTodoResponse) {
+    option (google.api.http) = {
+      post: "/create"
+      body: "*"
+    };
+  };
+}
+
+message CreateTodoRequest {
+  string name = 1;
+  string description = 2;
+}
+
+message CreateTodoResponse {
+  Todo todo = 1;
+}
+
+message Todo {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+
+}
