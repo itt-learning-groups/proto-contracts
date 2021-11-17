@@ -6,12 +6,7 @@ option go_package = "github.com/itt-learning-groups/proto-contracts/todoapi/v1;t
 import "google/api/annotations.proto";
 
 service TodoapiService {
-  rpc CreateTodo(CreateTodoRequest) returns (CreateTodoResponse) {
-    option (google.api.http) = {
-      post: "/create"
-      body: "*"
-    };
-  };
+  rpc CreateTodo(CreateTodoRequest) returns (CreateTodoResponse);
 }
 
 message CreateTodoRequest {
